@@ -1,8 +1,7 @@
 import type { Express } from "express";
-import type { ServerConfig } from "./config.js";
+import type { ServerConfig } from "./config/config.schema.js";
 
-export function startServer(app: Express, config: ServerConfig): void {
-  const port = config.port;
+export function startServer(app: Express, { port }: ServerConfig): void {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
   });

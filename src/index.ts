@@ -1,6 +1,6 @@
 import { startServer } from "./server.js";
 import app from "./app.js";
-import { loadAppConfig } from "./config.js";
+import { loadAppConfig } from "./config/config.js";
 
 const serverConfig = loadAppConfig().server;
 
