@@ -13,6 +13,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./nix/devshell.nix
+        ./nix/packages.nix
       ];
       systems = [
         "x86_64-linux"
