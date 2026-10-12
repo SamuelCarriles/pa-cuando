@@ -15,7 +15,7 @@
           pkgs.docker
           commands.build
           commands.start
-          commands.up
+          commands.serverUp
         ];
       };
     };

@@ -13,9 +13,9 @@ in
     name = "start";
     text = "npm start";
   };
-  up = pkgs.writeShellApplication {
+  serverUp = pkgs.writeShellApplication {
     inherit runtimeInputs;
-    name = "up";
+    name = "server-up";
     text = ''
       npm run build
       npm start
