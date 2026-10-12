@@ -3,9 +3,8 @@
     { pkgs, ... }:
     let
       node = pkgs.nodejs_24;
-      commands = import ./aliases.nix {
+      commands = import ./shell-apps.nix {
         inherit pkgs;
-        runtime = node;
       };
     in
     {
