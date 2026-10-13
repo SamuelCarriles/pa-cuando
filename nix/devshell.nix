@@ -3,7 +3,7 @@
     { pkgs, ... }:
     let
       node = pkgs.nodejs_24;
-      commands = import ./shell-apps.nix {
+      scripts = import ./scripts.nix {
         inherit pkgs;
       };
     in
@@ -12,9 +12,10 @@
         packages = [
           node
           pkgs.docker
-          commands.build
-          commands.start
-          commands.serverUp
+          scripts.build
+          scripts.start
+          scripts.serverUp
+          scripts.release
         ];
       };
     };

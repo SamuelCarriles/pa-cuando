@@ -26,18 +26,7 @@ in
   release = pkgs.writeShellApplication {
     name = "release";
     runtimeInputs = dockerRuntime ++ [ pkgs.nix ];
-    text = ''
-      version="''${1:? Use: release <version>}"
-      img_file="$(nix build .#default --no-link --print-out-paths)"
-
-      sudo docker load --input "$img_file"
-
-      local_image="pa-cuando:latest"
-      remote_image="ghcr.io/SamuelCarriles/pa-cuando:$version"
-
-      sudo docker tag "$local_image" "$remote_image"
-      sudo docker push "$remote_image"
-    '';
+    text = builtins.readFile ../scripts/release.sh;
   };
 
 }
