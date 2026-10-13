@@ -12,10 +12,11 @@
         packages = [
           node
           pkgs.docker
-          scripts.build
-          scripts.start
-          scripts.serverUp
-          scripts.release
+          scripts.compile
+          scripts.run
+          scripts.buildImage
+          scripts.tagImage
+          scripts.pushImage
         ];
       };
     };

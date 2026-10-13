@@ -2,31 +2,36 @@
 let
   nodeRuntime = [ pkgs.nodejs_24 ];
   dockerRuntime = [ pkgs.docker ];
+  mkScript = pkgs.writeShellApplication;
 in
 {
-  build = pkgs.writeShellApplication {
+  compile = mkScript {
     runtimeInputs = nodeRuntime;
-    name = "build";
+    name = "compile";
     text = "npm run build";
   };
-  start = pkgs.writeShellApplication {
+
+  run = mkScript {
     runtimeInputs = nodeRuntime;
-    name = "start";
+    name = "run";
     text = "npm start";
   };
-  serverUp = pkgs.writeShellApplication {
-    runtimeInputs = nodeRuntime;
-    name = "server-up";
-    text = ''
-      npm run build
-      npm start
-    '';
-  };
 
-  release = pkgs.writeShellApplication {
-    name = "release";
+  buildImage = mkScript {
+    name = "build-image";
     runtimeInputs = dockerRuntime ++ [ pkgs.nix ];
-    text = builtins.readFile ../scripts/release.sh;
+    text = builtins.readFile ../scripts/build-image.sh;
   };
 
+  tagImage = mkScript {
+    name = "tag-image";
+    runtimeInputs = dockerRuntime;
+    text = builtins.readFile ../scripts/tag-image.sh;
+  };
+
+  pushImage = mkScript {
+    name = "push-image";
+    runtimeInputs = dockerRuntime;
+    text = builtins.readFile ../scripts/push-image.sh;
+  };
 }
