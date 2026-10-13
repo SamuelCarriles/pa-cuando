@@ -5,9 +5,9 @@ let
   mkScript = pkgs.writeShellApplication;
 in
 {
-  compile = mkScript {
+  build = mkScript {
     runtimeInputs = nodeRuntime;
-    name = "compile";
+    name = "build";
     text = "npm run build";
   };
 

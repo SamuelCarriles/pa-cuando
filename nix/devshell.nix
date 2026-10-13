@@ -12,7 +12,7 @@
         packages = [
           node
           pkgs.docker
-          scripts.compile
+          scripts.build
           scripts.run
           scripts.buildImage
           scripts.tagImage
