@@ -34,4 +34,10 @@ in
     runtimeInputs = dockerRuntime;
     text = builtins.readFile ../scripts/push-image.sh;
   };
+
+  mongosh = mkScript {
+    name = "mongosh";
+    runtimeInputs = dockerRuntime;
+    text = builtins.readFile ../scripts/mongosh.sh;
+  };
 }

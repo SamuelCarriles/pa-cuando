@@ -14,6 +14,7 @@
           pkgs.docker
           scripts.build
           scripts.run
+          scripts.mongosh
           scripts.buildImage
           scripts.tagImage
           scripts.pushImage
