@@ -124,4 +124,13 @@ Los siguientes detalles se concretarán durante la implementación:
 - El mecanismo de invalidación de tokens cuando cambien los permisos de un usuario.
 - Los permisos predeterminados concretos de cada rol.
 
-
+```ts 
+{"role": {
+  "display": "Usuario",
+  "code": "user",
+  "modifyPermissions": {
+    "include": ["issue.editContent"],
+    "exclude": ["user.editProfile:own"]
+  }
+}}
+```
