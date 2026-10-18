@@ -2,7 +2,7 @@ import {
   serverConfigSchema,
   type Config,
   type ServerConfig,
-} from "./schema.js";
+} from "./schemas.js";
 
 function loadServerConfig(): ServerConfig {
   return serverConfigSchema.parse({
